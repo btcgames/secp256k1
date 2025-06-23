@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset=utf-8>
+  <title>function</title>
+  <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div id="leftDiv">
+    <div>Scale
+      <input id="sliderScale" type="range" min="0.5" max="70" value="20" step="1" class="slider">
+    </div>
+
+    <br>
+
+    <div>
+      <input id="inputStep" type="number" step=".1" id="step">
+      <button onclick="setStep()">Change step x<sub>1</sub></button>
+    </div>
+
+    <br>
+
+    <div>x<sub>1</sub>
+      <input id="sliderX" type="range" min="-1" max="1" value="0" step="1" class="slider">
+    </div>
+
+    <br>
+
+    <div>
+      <input id="startX" type="number" step="0.1">
+      <button onclick="plot('enterX')">Enter x<sub>1</sub></button>
+      <div id="start">x<sub>1</sub>:: ... y<sub>1</sub>:: .... ___Black. Initial</div>
+      <div id="double">x: ... y: ... ___Grenn. Multiply point (x, y) by 2</div>
+      <div id="divide">x<sub>2</sub>: ... y<sub>2</sub>: ... ___Red. Devide point (x<sub>1</sub>, y<sub>1</sub>) by 2</div>
+      <br>
+    </div>
+
+    <fieldset class="checker">
+      <legend>First calculate</legend>
+
+      <div>
+        <input type="radio" id="xyCheck" name="relation" checked/>
+        <label for="xyCheck">x<sub>2</sub></label>
+      </div>
+    
+      <div>
+        <input type="radio" id="yxCheck" name="relation" />
+        <label for="yxCheck">y<sub>2</sub></label>
+      </div>
+    </fieldset>
+
+    <div>k
+      <input type="text" id="inputK" value="0">
+      <!-- <p id="resultK"></p> -->
+    </div>
+
+    <div>x<sub>2</sub>
+      <input type="text" id="inputX" value="0">
+      <!-- <p id="resultX"></p> -->
+    </div>
+
+    <div>y<sub>2</sub>
+      <input type="text" id="inputY" value="0">
+      <!-- <p id="resultY"></p> -->
+    </div>
+
+    <button onclick="plot('init')">Вычислить k, x<sub>2</sub>, y<sub>2</sub></button>
+
+    <span style="white-space: pre-line">
+      Умножение. Используются: х, х2
+      x<sub>2</sub> = (9*x**<sup>4</sup>)/(4*x**<sup>3</sup> + 28) - 2*x 
+      y<sub>2</sub> = (x<sub>2</sub>**<sup>3</sup> + 7)**<sup>0.5</sup>
+
+      Умножение с углом k
+      k = (3*x**<sup>2</sup>) / (2*y)
+      x<sub>2</sub> = k**<sup>2</sup> - 2*x
+      y<sub>2</sub> = k*(x - x<sub>2</sub>) - y
+
+      <!-- Умножение. Используются: х, у, х2
+      x2 = (9*x**<sup>4</sup>)/(4*y**<sup>2</sup>) - 2*x
+      y2 = ( (3*x**<sup>2</sup>) / (2*y) ) * (x - x<sub>2</sub>) - y
+
+      Умножение. Используются: х, у
+      x2 = (9*x**<sup>4</sup>)/(4*y**<sup>2</sup>) - 2*x
+      y2 = (9*x**<sup>3</sup>)/(2*y) - (27*x**<sup>6</sup>)/(8*y**<sup>3</sup>) - y -->
+    </span>
+  </div>
+
+  <div class="canvas">
+    <canvas id="plotCanvas"></canvas>
+  </div>
+
+</body>
+
+<script src="script.js" type="text/javascript"></script>
+
+</html>
